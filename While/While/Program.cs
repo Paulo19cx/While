@@ -23,16 +23,20 @@ namespace While
             //double valor = Convert.ToDouble(Console.ReadLine());
             //Conversao(valor);
 
-            //Console.WriteLine("Digite um valor: ");
+            //Console.Write("Digite um valor: ");
             //double num1 = Convert.ToDouble(Console.ReadLine());
-            //Console.WriteLine("Digite um segundo valor: ");
+            //Console.Write("Digite um segundo valor: ");
             //double num2 = Convert.ToDouble(Console.ReadLine());
-            //Console.WriteLine("Digite um terceiro valor: ");
+            //Console.Write("Digite um terceiro valor: ");
             //double num3 = Convert.ToDouble(Console.ReadLine());
-            //Console.WriteLine("Digite um quarto valor: ");
+            //Console.Write("Digite um quarto valor: ");
             //double num4 = Convert.ToDouble(Console.ReadLine());
             //double valor1 = num1 * num2 * num3 * num4;
             //Mult(valor1);
+
+            //ChaveSecreta();
+            //NumerosImpares();
+            //Aumento();
         }
 
         public static void Contagem()
@@ -261,13 +265,76 @@ namespace While
 
         public static void ChaveSecreta()
         {
-            Console.WriteLine("Digite uma chave de 0 a 9: ");
+            Console.Write("Digite uma chave que seja um número inteiro de 0 até 9: ");
             int chave = Convert.ToInt32(Console.ReadLine());
 
-            while (chave > 100000000)
+            while (chave < 0 || chave > 9)
             {
-
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Você digitou um valor fora do intervalo!");
+                Console.ResetColor();
+                Console.Write("Digite novamente\n> ");
+                chave = Convert.ToInt32(Console.ReadLine());
             }
+
+            if (chave >= 0 && chave <= 9)
+            {
+                Console.Write("\nAgora digite um número de 0 até 9 e tente adivinahr a chave: ");
+                int tentativa = Convert.ToInt32(Console.ReadLine());
+
+                while (tentativa != chave)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Você digitou a chave errada!");
+                    Console.ResetColor();
+                    Console.Write("Tente novamente: ");
+                    tentativa = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Você acertou a chave secreta, PARABÉNS!!!");
+            Console.ResetColor();
+        }
+
+        public static void NumerosImpares()
+        {
+            int n = 10000;
+
+            while (n <= 20000)
+            {
+                if (n % 2 != 0)
+                {
+                    Console.WriteLine(n);
+                }
+                n++;
+            }
+        }
+
+        public static void Aumento()
+        {
+            Console.Write("Digite o salário: ");
+            double salario = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite a porcentagem de aumento: ");
+            double porcent = Convert.ToDouble(Console.ReadLine());
+
+            double conv = porcent / 100;
+            double mult = salario * conv;
+            double aumento = salario + mult;
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("O salário com o aumento de " + porcent + "% é de: " + aumento);
+            Console.ResetColor();
+        }
+
+        public static void Calculo()
+        {
+
+        }
+
+        public static int RetornoCalculo(int num1, int num2)
+        {
+            return num1 * num2;
         }
     }
 }
