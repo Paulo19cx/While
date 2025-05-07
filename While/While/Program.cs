@@ -37,6 +37,11 @@ namespace While
             //ChaveSecreta();
             //NumerosImpares();
             //Aumento();
+
+            double resultado = Divisao();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("O resulta é de: " + resultado);
+            Console.ResetColor();
         }
 
         public static void Contagem()
@@ -335,6 +340,29 @@ namespace While
         public static int RetornoCalculo(int num1, int num2)
         {
             return num1 * num2;
+        }
+
+        public static double Multiplicacao()
+        {
+            Console.Write("Digite um valor: ");
+            double num1 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite um segundo valor: ");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite um terceiro valor: ");
+            double num3 = Convert.ToDouble(Console.ReadLine());
+
+            double mult = num1 * num2 * num3;
+
+            return mult;
+        }
+
+        public static double Divisao()
+        {
+            double valorM = Multiplicacao();
+
+            double divisao = valorM / 2;
+
+            return divisao;
         }
     }
 }
